@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV["DB_USER"] || Rails.application.credentials.database[:username] %>
+  host: <%= ENV["DB_HOST"] || Rails.application.credentials.database[:host] %>
+  port: <%= ENV["DB_PORT"] || Rails.application.credentials.database[:port] %>
+  password: <%= ENV["DB_PASS"] || Rails.application.credentials.database[:password] %>
+
+development:
+  <<: *default
+  database: power_contact_api_development
+
+test:
+  <<: *default
+  database: power_contact_api_test
+
+production:
+  <<: *default
+  database: power_contact_api_production
