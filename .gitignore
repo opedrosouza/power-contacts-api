@@ -33,3 +33,4 @@
 .env.development
 .env.test
 
+coverage
