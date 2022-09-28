@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :contacts, path: '/' do
+    resources :contacts
+  end
+
   devise_for :users,
              path: '/',
              class_name: 'User',

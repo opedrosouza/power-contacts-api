@@ -12,4 +12,10 @@ RSpec.describe User, type: :model do
 
     expect(user.email).to_not be_nil
   end
+
+  describe 'relationships' do
+    subject { create(:user) }
+
+    it { is_expected.to have_many(:contacts) }
+  end
 end
