@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :contacts, path: '/' do
-    resources :contacts
-  end
-
   devise_for :users,
              path: '/',
              class_name: 'User',
@@ -18,4 +14,7 @@ Rails.application.routes.draw do
                registration: 'register'
              }
   root to: 'health#index'
+
+  resources :contacts
+  resources :contact_files, except: %i[update destroy]
 end

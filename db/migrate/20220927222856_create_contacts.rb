@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# migration to create contacts table
 class CreateContacts < ActiveRecord::Migration[6.1]
   def change
     create_table :contacts, id: :uuid do |t|

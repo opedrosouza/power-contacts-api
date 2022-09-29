@@ -11,6 +11,17 @@ services:
     networks:
       - backend
 
+  sidekiq:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    depends_on:
+      - db
+      - redis
+    networks:
+      - backend
+    command: 'bundle exec sidekiq'
+
   nginx:
     build:
       context: .
